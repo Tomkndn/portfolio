@@ -31,3 +31,37 @@ body {
     text-wrap: balance;
   }
 }
+
+.hero{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 23px;
+}
+
+.terminal-window::-webkit-scrollbar {
+  display: none;
+}
+
+.terminal-window {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+  scroll-behavior: smooth; 
+}
+
+
+.user-input::after {
+  display: inline-block;
+  content: "";
+  width: 8px;
+  height: 25px;position: relative;
+  top:5px;
+  background: rgba(255, 255, 255, 0.2);
+  margin-left: 5px;
+  margin-top: 10px;
+  animation: blink 1s step-start 0s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

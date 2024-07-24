@@ -54,7 +54,7 @@ const Nav: React.FC<NavProps> = ({menuItems}) => {
         />
         <NavbarBrand className="lg:text-4xl lg:mt-5 text-2xl mt-2">
           <p className="font-bold text-inherit">Tom</p>
-          <span className="ms-2 font-bold text-inherit text-blue-700 ">
+          <span className="ms-2 font-bold text-inherit text-blue-600 ">
             Kndn
           </span>
         </NavbarBrand>
