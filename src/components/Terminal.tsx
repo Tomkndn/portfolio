@@ -26,7 +26,7 @@ const Terminal: React.FC = () => {
         terminalRef.current.innerHTML = `<div className="terminal-line">
               <span className="help-msg">
                 Welcome to my portfolio! — Type${" "}
-                <span className="text-blue-600">help</span> for a list of
+                <span class="text-blue-700">help</span> for a list of
                 supported commands.
               </span>
             </div>`;
@@ -99,7 +99,7 @@ const Terminal: React.FC = () => {
           </div>
           <div className="terminal-line flex items-center">
             <span className="text-green-700">$</span>
-            <span className="directory text-blue-400 px-2">~</span>
+            <span className=" text-blue-400 px-2">~</span>
             <span className="user-input relative bottom-1" ref={userInputRef}>
               {input}
             </span>

@@ -6,15 +6,15 @@ import Terminal from './Terminal';
 
 function Hero() {
   return (
-    <div className="flex justify-center items-center gap-20 my-20 mx-10 h-96 font-sans">
+    <div className="flex justify-center items-center gap-20 lg:mt-20 py-10 mx-10  h-full font-sans">
       <div className="">
         <div className="lg:text-lg text-sm my-3 text-gray-400">
           HELLO THERE, WELCOME TO MY SITE
         </div>
-        <p className="lg:text-5xl text-3xl text-wrap my-2 font-medium">
+        <p className="lg:text-5xl text-3xl text-wrap my-2 font-medium text-white">
           I'm Kundan Tamsoy
         </p>
-        <p className="lg:text-6xl text-4xl text-blue-800 font-bold my-2">
+        <p className="lg:text-6xl text-4xl text-blue-600 font-bold my-2">
           A Full Stack Developer
         </p>
         <p className="lg:text-5xl text-3xl my-2 text-red-500 font-semibold">
@@ -27,7 +27,10 @@ function Hero() {
         >
           Resume
         </Button>
-        <Button variant="flat" className="lg:text-xl text-base lg:mt-5 h-10 lg:w-40 w-32 lg:ms-10 ms-2 ">
+        <Button
+          variant="flat"
+          className="lg:text-xl text-base lg:mt-5 h-10 lg:w-40 w-32 lg:ms-10 ms-2 "
+        >
           Hire Me 🎉
           <BorderBeam
             size={100}
@@ -38,7 +41,7 @@ function Hero() {
           />
         </Button>
       </div>
-      <div className="lg:h-96 h-72 w-[34rem] hidden md:block">
+      <div className="lg:h-96 h-72 w-[34rem] hidden md:block shadow-custom-lg">
         <Terminal />
       </div>
     </div>

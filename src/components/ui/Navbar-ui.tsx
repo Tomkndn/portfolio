@@ -30,6 +30,7 @@ const Nav: React.FC<NavProps> = ({menuItems}) => {
       height={"100px"}
       onMenuOpenChange={setIsMenuOpen}
       isMenuOpen={isMenuOpen}
+      className="bg-transparent -backdrop-saturate-0 backdrop-blur-sm"
       classNames={{
         item: [
           "flex",
@@ -44,19 +45,18 @@ const Nav: React.FC<NavProps> = ({menuItems}) => {
           "data-[active=true]:after:h-[2px]",
           "data-[active=true]:after:rounded-[2px]",
           "data-[active=true]:after:bg-primary",
+          "data-[active=true]:after:-backdrop-blur-0",
         ],
       }}
     >
-      <NavbarContent>
+      <NavbarContent className="">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="md:hidden"
+          className="md:hidden text-white"
         />
-        <NavbarBrand className="lg:text-4xl lg:mt-5 text-2xl mt-2">
-          <p className="font-bold text-inherit">Tom</p>
-          <span className="ms-2 font-bold text-inherit text-blue-600 ">
-            Kndn
-          </span>
+        <NavbarBrand className="lg:text-4xl lg:mt-5 text-2xl ">
+          <p className="font-bold text-white">Tom</p>
+          <span className="ms-2 font-bold text-blue-600 ">Kndn</span>
         </NavbarBrand>
       </NavbarContent>
 
@@ -65,7 +65,7 @@ const Nav: React.FC<NavProps> = ({menuItems}) => {
           <NavbarItem isActive={active == index} key={`${item}-${index}`}>
             <Link
               color={index === active ? "primary" : "foreground"}
-              className="text-lg"
+              className="text-xl"
               href="#"
               onPress={() => menuChange(index)}
             >
@@ -74,7 +74,7 @@ const Nav: React.FC<NavProps> = ({menuItems}) => {
           </NavbarItem>
         ))}
       </NavbarContent>
-      <NavbarMenu>
+      <NavbarMenu className="bg-transparent -backdrop-saturate-0 ">
         {menuItems.map((item: string, index: number) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link

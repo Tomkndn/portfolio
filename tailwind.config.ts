@@ -1,5 +1,11 @@
 import {nextui} from '@nextui-org/react';
 import type { Config } from "tailwindcss";
+const defaultTheme = require("tailwindcss/defaultTheme");
+const colors = require("tailwindcss/colors");
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
+ 
 
 const config: Config = {
   content: [
@@ -17,23 +23,32 @@ const config: Config = {
       },
       animation: {
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
+        "scroll": "scroll var(--animation-duration, 40s) var(--animation-direction,forwards) linear infinite"
       },
-      keyframes: {
-        "border-beam": {
-          "100%": {
-            "offset-distance": "100%",
-          },
+      boxShadow: {
+        'custom-lg': '0 10px 20px rgba(0, 0, 0, 0.25)',
+      },
+    },
+    keyframes: {
+      "border-beam": {
+        "100%": {
+          "offset-distance": "100%",
         },
-        "shine-pulse": {
-          "0%": {
-            "background-position": "0% 0%",
-          },
-          "50%": {
-            "background-position": "100% 100%",
-          },
-          to: {
-            "background-position": "0% 0%",
-          },
+      },
+      "shine-pulse": {
+        "0%": {
+          "background-position": "0% 0%",
+        },
+        "50%": {
+          "background-position": "100% 100%",
+        },
+        to: {
+          "background-position": "0% 0%",
+        },
+      },
+      "scroll": {
+        to: {
+          transform: "translate(calc(-50% - 0.5rem))",
         },
       },
     },
@@ -41,8 +56,20 @@ const config: Config = {
   darkMode: "class",
   plugins: [
     nextui(),
+    addVariablesForColors,
   ]
 };
-
+  
+  function addVariablesForColors({ addBase, theme }: any) {
+    let allColors = flattenColorPalette(theme("colors"));
+    let newVars = Object.fromEntries(
+      Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+    );
+    
+    addBase({
+      ":root": newVars,
+    });
+  }
+  
 
 export default config;
