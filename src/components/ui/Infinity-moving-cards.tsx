@@ -106,6 +106,7 @@ export const InfiniteMovingCards = ({
                     height={100}
                     alt="NextUI hero Image"
                     src={`/skill${item}`}
+                    className="h-16 w-16 lg:h-24 lg:w-24"
                   />
                 </span>
               </div>

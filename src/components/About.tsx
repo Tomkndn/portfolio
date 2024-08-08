@@ -4,12 +4,12 @@ import { Image } from "@nextui-org/react";
 
 function About() {
   return (
-    <div className="flex flex-row-reverse justify-center items-center gap-20 lg:py-40 py-26 mx-10 h-full font-sans">
-      <div className="">
-        <div className="lg:text-5xl text-4xl my-5 text-center text-white">
+    <div className="  flex flex-col-reverse md:flex-row-reverse justify-center items-center gap-10 lg:gap-20 mx-5 h-full font-sans my-10 lg:py-20">
+      <div className="md:my-10">
+        <div className="lg:text-5xl md:text-3xl text-2xl text-center text-white">
           What I do?
         </div>
-        <p className="lg:text-xl text-lg w-[40rem] text-wrap my-2 font-medium text-gray-50 tracking-tight">
+        <p className="lg:text-xl text-base  lg:w-[38rem] md:w-[20rem] text-wrap my-2 font-medium text-gray-50 tracking-tight">
           As a passionate Full Stack Developer, I create dynamic web
           applications using modern technologies like React, Next.js, Node.js,
           Prisma, Zod, and MongoDB. I specialize in both front-end and back-end
@@ -20,8 +20,13 @@ function About() {
           industry trends to deliver high-quality, scalable web solutions.
         </p>
       </div>
-      <div className="lg:h-96 h-72 w-[34rem] hidden md:block">
-        <Image width={500} alt="NextUI hero Image" src="/image.png" />
+      <div className="text-center">
+        <Image
+          // width={500}
+          alt="NextUI hero Image"
+          src="/image.png"
+          className="h-[300px] w-[300px] lg:h-[550px] lg:w-[550px]"
+        />
       </div>
     </div>
   );

@@ -15,6 +15,7 @@ function Skills() {
           items={testimonials[0]}
           direction="right"
           speed="normal"
+          className="lg:mb-5"
         />
         <InfiniteMovingCards
           items={testimonials[1]}
