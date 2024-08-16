@@ -28,6 +28,10 @@ const config: Config = {
       boxShadow: {
         'custom-lg': '0 10px 20px rgba(0, 0, 0, 0.25)',
       },
+      colors:{
+        'white-100': '#E5E7EB',
+        'white-200': '#D1D5DB',
+      },
     },
     keyframes: {
       "border-beam": {
