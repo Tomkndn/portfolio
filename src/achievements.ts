@@ -15,8 +15,8 @@ export const experiences: Experience[] = [
     iconBg: "#1D1836",
     date: "May 2024 - Aug 2024",
     points: [
-      "Contributed to 10+ projects and Successfully merged 10 PRs.",
-      "Achieved 195th rank all over the India in this program.",
+      "Contributed to over 10+ projects and successfully merged 10 pull requests.",
+      "Attained the 195th position among participants from all over India in this program.",
     ],
   },
   {
@@ -26,8 +26,8 @@ export const experiences: Experience[] = [
     iconBg: "#1D1836",
     date: "Sep 2022 - Present",
     points: [
-      "Scored 9.67 CGPA till present.",
-      "Present in a Dean's list of the college.",
+      "Achieved and sustained a CGPA of 9.67 up to the present.",
+      "Present on the Dean's List for outstanding academic performance.",
     ],
   },
 ];

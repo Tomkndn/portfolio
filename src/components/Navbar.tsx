@@ -9,7 +9,7 @@ function Navbar() {
       "Skills",
       "Projects",
       "Achievements",
-      "Contact",
+      "Connect",
     ];
     return <Nav menuItems={menuItem} />;
 }
