@@ -4,7 +4,10 @@ import { Image } from "@nextui-org/react";
 
 function About() {
   return (
-    <div className="  flex flex-col-reverse md:flex-row-reverse justify-center items-center gap-10 lg:gap-20 mx-5 h-full font-sans my-10 lg:py-20">
+    <div
+      id="about-container"
+      className="  flex flex-col-reverse md:flex-row-reverse justify-center items-center gap-10 lg:gap-20 mx-5 h-full font-sans my-10 lg:py-20"
+    >
       <div className="md:my-10">
         <div className="lg:text-5xl md:text-3xl text-2xl text-center text-white">
           What I do?

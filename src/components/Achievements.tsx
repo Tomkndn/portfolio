@@ -49,7 +49,7 @@ const TimelineCard: React.FC<TimelineCardProps> = ({ experience }) => {
 
 const Work: React.FC = () => {
   return (
-    <section id="experience" className="my-20">
+    <section id="achievements-container" className="my-20">
       <div className="text-center mb-12">
         <p className="text-lg text-white-200">What I have done so far</p>
         <h2 className="text-4xl font-bold text-white">Achievement</h2>

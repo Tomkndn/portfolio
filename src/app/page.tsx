@@ -8,6 +8,8 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import AnimatedGridPattern from "@/components/ui/Animated-beam";
 import { cn } from "@/lib/utils";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
   return (
@@ -30,6 +32,19 @@ export default function Home() {
       <Achievements />
       <Contact />
       <Footer />
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        limit={1}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover={false}
+        theme="colored"
+      />
     </div>
   );
 }

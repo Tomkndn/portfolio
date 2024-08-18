@@ -8,8 +8,8 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
-  Link,
 } from "@nextui-org/react";
+import { Link } from "react-scroll";
 
 interface NavProps {
   menuItems: string[];
@@ -64,10 +64,16 @@ const Nav: React.FC<NavProps> = ({menuItems}) => {
         {menuItems.map((item: string, index: number) => (
           <NavbarItem isActive={active == index} key={`${item}-${index}`}>
             <Link
-              color={index === active ? "primary" : "foreground"}
-              className="text-xl"
-              href="#"
-              onPress={() => menuChange(index)}
+              spy={true}
+              className={`text-xl cursor-pointer ${
+                active === index ? "text-primary" : "text-white"
+              }`}
+              to={`${item.toLowerCase()}-container`}
+              activeClass="active"
+              hashSpy={true}
+              onSetActive={() => menuChange(index)}
+              onSetInactive={() => menuChange(index)}
+              ignoreCancelEvents={false}
             >
               {item}
             </Link>
@@ -78,11 +84,16 @@ const Nav: React.FC<NavProps> = ({menuItems}) => {
         {menuItems.map((item: string, index: number) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
-              color={index === active ? "primary" : "foreground"}
-              className="w-full"
-              href="#"
-              size="lg"
-              onPress={() => menuChange(index, true)}
+              spy={true}
+              className={`text-xl w-full cursor-pointer ${
+                active === index ? "text-primary" : "text-white"
+              }`}
+              to={`${item.toLowerCase()}-container`}
+              activeClass="active"
+              hashSpy={true}
+              onSetActive={() => menuChange(index)}
+              onSetInactive={() => menuChange(index,true)}
+              ignoreCancelEvents={false}
             >
               {item}
             </Link>

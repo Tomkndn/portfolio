@@ -7,25 +7,27 @@ import Link from "next/link";
 
 function Projects() {
   return (
-    <div className="lg:py-20 py-26 mx-10 h-full font-sans">
+    <div
+      id="projects-container"
+      className="lg:py-20 py-26 mx-10 h-full font-sans"
+    >
       <div className="lg:text-5xl text-4xl my-5 text-center text-white">
         Projects
       </div>
 
       <BentoGrid className="max-w-[90rem] mx-auto my-20">
         {items.map((item, i) => (
-        <Link href={item.link}>
-          <BentoGridItem
-            key={i}
-            title={item.title}
-            header={<Skeleton img={item.header}/>}
-            icon={<IconSkeleton txt={item.icon} />}
-            className={i === 3 || i === 6 ? "md:col-span-2" : ""}
+          <Link href={item.link} key={i}>
+            <BentoGridItem
+              key={i}
+              title={item.title}
+              header={<Skeleton img={item.header} />}
+              icon={<IconSkeleton txt={item.icon} />}
+              className={i === 3 || i === 6 ? "md:col-span-2" : ""}
             />
-        </Link>
-      ))}
+          </Link>
+        ))}
       </BentoGrid>
-      
     </div>
   );
 }
@@ -54,7 +56,7 @@ const IconSkeleton = ({ txt }: { txt: string[] }) => {
     <div className="flex gap-2 flex-wrap">
       {txt.map((ele,index) => {
       const colorClass = colors[index % colors.length] || "text-neutral-500";
-      return <p className={`${colorClass} text-opacity-80`}>{`#${ele}`}</p>;
+        return <p key={index} className={`${colorClass} text-opacity-80`}>{`#${ele}`}</p>;
     })}
     </div>
   )

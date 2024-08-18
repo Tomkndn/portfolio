@@ -1,8 +1,38 @@
-import React from 'react';
+"use client"
+import React, { useState } from 'react';
+import { toast } from "react-toastify";
+import { contactSchema, ContactFormValues } from './validation/contactValidation';
 
 const Contact: React.FC = () => {
+  const [errors, setErrors] = useState<Partial<ContactFormValues>>({});
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    
+    const formData = new FormData(event.currentTarget);
+    const values: ContactFormValues = {
+      email: formData.get("email") as string,
+      subject: formData.get("subject") as string,
+      message: formData.get("message") as string,
+    };
+
+    const result = contactSchema.safeParse(values);
+
+    if (result.success) {
+      setErrors({});
+      toast.success("Message sent successfully!");
+    } else {
+      const formattedErrors = result.error.format();
+      setErrors({
+        email: formattedErrors.email?._errors[0],
+        subject: formattedErrors.subject?._errors[0],
+        message: formattedErrors.message?._errors[0],
+      });
+    }
+  };
+
     return (
-      <section className=" ">
+      <section className=" " id="connect-container">
         <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
           <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">
             In need of a skilled developer?<br/> Let's connect!{" "}
@@ -11,7 +41,7 @@ const Contact: React.FC = () => {
             Whether you're looking to start a new project or explore potential
             opportunities,<br/> I'm here to help.
           </p>
-          <form action="#" className="space-y-8">
+          <form onSubmit={handleSubmit} className="space-y-8">
             <div>
               <label
                 htmlFor="email"
@@ -21,11 +51,13 @@ const Contact: React.FC = () => {
               </label>
               <input
                 type="email"
-                id="email"
+                name='email'
                 className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-secondary-500 focus:border-secondary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary-500 dark:focus:border-secondary-500 dark:shadow-sm-light"
                 placeholder="name@gmail.com"
-                required
               />
+              {errors.email && (
+                <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+              )}
             </div>
             <div>
               <label
@@ -36,11 +68,13 @@ const Contact: React.FC = () => {
               </label>
               <input
                 type="text"
-                id="subject"
+                name='subject'
                 className="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-secondary-500 focus:border-secondary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary-500 dark:focus:border-secondary-500 dark:shadow-sm-light"
                 placeholder="Let us know how we can help you"
-                required
               />
+              {errors.subject && (
+                <p className="text-red-500 text-xs mt-1">{errors.subject}</p>
+              )}
             </div>
             <div className="sm:col-span-2">
               <label
@@ -50,11 +84,14 @@ const Contact: React.FC = () => {
                 Your message
               </label>
               <textarea
-                id="message"
+                name="message"
                 rows={6}
                 className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-secondary-500 focus:border-secondary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary-500 dark:focus:border-secondary-500"
                 placeholder="Leave a comment..."
               ></textarea>
+              {errors.message && (
+                <p className="text-red-500 text-xs mt-1">{errors.message}</p>
+              )}
             </div>
             <button
               type="submit"
