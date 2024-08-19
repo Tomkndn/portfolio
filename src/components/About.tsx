@@ -1,12 +1,13 @@
 "use client"
 import React from 'react'
-import { Image } from "@nextui-org/react";
+// import { Image } from "@nextui-org/react";
+import Image from "next/image";
 
 function About() {
   return (
     <div
       id="about-container"
-      className="  flex flex-col-reverse md:flex-row-reverse justify-center items-center gap-10 lg:gap-20 mx-5 h-full font-sans my-10 lg:py-20"
+      className="flex flex-col-reverse md:flex-row-reverse justify-center items-center gap-10 lg:gap-20 mx-5 h-full font-sans my-10 lg:py-20"
     >
       <div className="md:my-10">
         <div className="lg:text-5xl md:text-3xl text-2xl text-center text-white">
@@ -25,7 +26,8 @@ function About() {
       </div>
       <div className="text-center">
         <Image
-          // width={500}
+          width={500}
+          height={500}
           alt="NextUI hero Image"
           src="/image.png"
           className="h-[300px] w-[300px] lg:h-[550px] lg:w-[550px]"

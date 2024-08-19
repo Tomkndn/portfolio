@@ -42,11 +42,7 @@ const Footer: React.FC = () => {
               href="#"
               className="flex items-center justify-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse"
             >
-              <img
-                src="/logo.png"
-                className="h-12"
-                alt="Tomkndn Logo"
-              />
+              <img src="/logo.png" className="h-12" alt="Tomkndn Logo" />
               <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
                 Tomkndn
               </span>
@@ -65,7 +61,7 @@ const Footer: React.FC = () => {
           </div>
           <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
           <span className="block text-sm text-gray-500 text-center dark:text-gray-400">
-            © 2024{" "}
+            © {new Date().getFullYear()}{" "}
             <a href="#" className="hover:underline">
               Tomkndn™
             </a>

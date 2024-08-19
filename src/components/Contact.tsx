@@ -20,7 +20,20 @@ const Contact: React.FC = () => {
 
     if (result.success) {
       setErrors({});
-      toast.success("Message sent successfully!");
+      try {
+        const response = await fetch("/api/send", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        });
+
+        if (response.ok) toast.success("Message sent successfully!");
+        else toast.error("Message not sent!");
+      } catch (error) {
+        toast.error("Message not sent!");
+      }
     } else {
       const formattedErrors = result.error.format();
       setErrors({
