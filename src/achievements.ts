@@ -9,6 +9,18 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
+    title: "FrontEnd Intern",
+    company_name: "Yolliday LLP",
+    icon: "./achievements/yoliday.png",
+    iconBg: "#1D1836",
+    date: "Sept 2024 - Dec 2024",
+    points: [
+      "Admin Portal Management: Oversee and enhance the frontend part of the admin portal at Yolliday LLP.",
+      "React & TypeScript: Spearheaded the development of the admin portal using modern frontend technologies.",
+      "API Integration: Collaborated with backend teams to seamlessly integrate APIs, streamlining data flow and portal operations.",
+    ],
+  },
+  {
     title: "Open Source Contributor",
     company_name: "GSSOC' 24",
     icon: "./achievements/gssoc.png",
